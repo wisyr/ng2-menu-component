@@ -1,0 +1,31 @@
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+/*
+global settings
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: Raleway, sans-serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.clearfix {
+  clear: both;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+*:focus {
+  outline: none;
+}

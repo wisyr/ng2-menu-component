@@ -1,0 +1,102 @@
+<div class="sideMenu" [ngClass]="{ 'shrunkMenu':isMenuShrunken, 'hideMenu':isMenuHidden }">
+    <div class="sideMenuContent">
+
+        <span class="menuItem" (click)="isMenuHidden=false;isMenuShrunken=false;hideElements();isHiddenSubMenu[0] = !isHiddenSubMenu[0]"
+              [ngClass]="{ 'activeMenuItem':isHiddenSubMenu[0] }">
+            <i class="material-icons icon">visibility</i>
+            <span class="menuItemText">Dashboard</span>
+        </span>
+        <div class="subMenuItemContainer subMenuHide" [ngClass]="{ 'subMenuShow':isHiddenSubMenu[0] }">
+            <a class="subMenuLink">Main dashboard</a>
+            <a class="subMenuLink">Watchlist</a>
+            <a class="subMenuLink">Watchlist edit</a>
+        </div>
+
+        <span class="menuItem" (click)="isMenuHidden=false;isMenuShrunken=false;hideElements();isHiddenSubMenu[1] = !isHiddenSubMenu[1]"
+              [ngClass]="{ 'activeMenuItem':isHiddenSubMenu[1] }">
+            <i class="material-icons icon">subject</i>
+            <span class="menuItemText">Project</span>
+        </span>
+        <div class="subMenuItemContainer subMenuHide" [ngClass]="{ 'subMenuShow':isHiddenSubMenu[1] }">
+            <a class="subMenuLink">Event handlers</a>
+            <a class="subMenuLink">Data sources</a>
+        </div>
+
+        <span class="menuItem" (click)="isMenuHidden=false;isMenuShrunken=false;hideElements();isHiddenSubMenu[2] = !isHiddenSubMenu[2]"
+              [ngClass]="{ 'activeMenuItem':isHiddenSubMenu[2] }">
+            <i class="material-icons icon">settings</i>
+            <span class="menuItemText">Settings</span>
+        </span>
+        <div class="subMenuItemContainer subMenuHide" [ngClass]="{ 'subMenuShow':isHiddenSubMenu[2] }">
+            <a class="subMenuLink">Users</a>
+            <a class="subMenuLink">Point hierarchy</a>
+            <a class="subMenuLink">Mailing list</a>
+        </div>
+
+        <span class="menuItem" (click)="isMenuHidden=false;isMenuShrunken=false;hideElements();isHiddenSubMenu[3] = !isHiddenSubMenu[3]"
+              [ngClass]="{ 'activeMenuItem':isHiddenSubMenu[3] }">
+            <i class="material-icons icon">trending_up</i>
+            <span class="menuItemText">Trends</span>
+        </span>
+        <div class="subMenuItemContainer subMenuHide" [ngClass]="{ 'subMenuShow':isHiddenSubMenu[3] }">
+            <a class="subMenuLink">Trends</a>
+        </div>
+
+        <span class="menuItem" (click)="isMenuHidden=false;isMenuShrunken=false;hideElements();isHiddenSubMenu[4] = !isHiddenSubMenu[4]"
+              [ngClass]="{ 'activeMenuItem':isHiddenSubMenu[4] }">
+            <i class="material-icons icon">search</i>
+            <span class="menuItemText">Search</span>
+        </span>
+        <div class="subMenuItemContainer subMenuHide" [ngClass]="{ 'subMenuShow':isHiddenSubMenu[4] }">
+            <a class="subMenuLink">Search</a>
+        </div>
+
+        <span class="menuItem" (click)="isMenuHidden=false;isMenuShrunken=false;hideElements();isHiddenSubMenu[5] = !isHiddenSubMenu[5]" [ngClass]="{ 'activeMenuItem':isHiddenSubMenu[5] }">
+            <i class="material-icons icon">info_outline</i>
+            <span class="menuItemText">About us</span>
+        </span>
+
+    </div>
+</div>
+
+<div class="header" (window:resize)="checkScreenWidth()">
+
+    <a href="#" class="logoScada clearfix">
+        <img class="logo" src="http://i.imgur.com/eAwVax8.png">
+    </a>
+
+    <span class="collapseMenuIcon" (click)="toggleMenu();hideElements()">
+    <i class="material-icons iconMenu">menu</i>
+  </span>
+
+
+    <div class="userTools">
+
+        <a class="dropdownInfo" (mouseover)="isNotificationDropdownHidden=true" (mouseleave)="isNotificationDropdownHidden=false" (click)="isNotificationDropdownHidden=false">
+            <i class="material-icons iconInfo">notifications_none</i>
+        </a>
+        <div class="notificationsDropdown" [ngClass]="{ 'hidden':!isNotificationDropdownHidden }" (mouseover)="isNotificationDropdownHidden=true" (mouseleave)="isNotificationDropdownHidden=false">
+            <div class="notificationsHeader clearfix">
+                <strong>Notifications</strong><span>Mark all as read</span>
+            </div>
+            <div class="msgList">
+                <ul class="">
+                    <li *ngFor="let message of messages">{{ message.title }}</li>
+                </ul>
+            </div>
+            <div class="allNotifications">See all notifications</div>
+
+        </div>
+
+
+
+        <img class="userImage" src="http://i.imgur.com/Goi7vDJ.png" (mouseover)="isUserDropdownHidden=true" (mouseleave)="isUserDropdownHidden=false" (click)="isUserDropdownHidden=false">
+        <ul class="userDropdown" [ngClass]="{ 'hidden':!isUserDropdownHidden }" (mouseover)="isUserDropdownHidden=true" (mouseleave)="isUserDropdownHidden=false">
+            <li><i class="material-icons icon">settings</i>Settings</li>
+            <li (click)="logout()"><i class="material-icons icon">power_settings_new</i>Sign out</li>
+        </ul>
+
+    </div>
+
+
+</div>
